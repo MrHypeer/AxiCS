@@ -13,18 +13,17 @@ x = zeros(1,length(y));
 xyoffset = [x;y]';
 % xyoffset = [0 15;0 0;0 -15; 0 -10; 0 5]; % um unit
 pxlposi = DMDgalvoFOV2pxl(xyoffset);
-dmdpoints = DMD2DMDgalvo(pxlposi);
-Point = padarray(dmdpoints,[0,1],0,'post'); % generate 3D points for generation
+dmdpoints2 = DMD2DMDgalvo(pxlposi);
 
 
 %% generate hologram
 tic
 Cali = zeros(17,1);
 Amp = zeros(1,17);
-pattern_path = 'D:\Experiment Data\compressive sensing\experiment20221103_dmdgalvo\';
-pattern =  TrajectoryByPoint_withcor_stack40Scan(Point, ...
-    Amp, Cali, pattern_path, 'DMDGalvoX0Y40S10');
+pattern =  TrajectoryByPoint_withcor_stack40Scan(Point{1}, ...
+    Amp, Cali, data_path, 'Fullscan_X1Y100Z30XY04Z04');
 toc
+TrajectoryByPoint_withcor_stack40Scan(Point,Amp,Cali,Path_File,suffixChar)
 
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

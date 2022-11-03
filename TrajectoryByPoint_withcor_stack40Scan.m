@@ -159,8 +159,8 @@ for ii_sample = 1:Num
         end
 end
 pattern = 'ok';
-% bigPic = bigPic(1 : (last_pack_num * n), :);
-% imwrite(bigPic, strcat(Path_File, num2str(pack_num), suffixChar, '.bmp'));
+bigPic = bigPic(1 : (last_pack_num * n), :);
+imwrite(bigPic, strcat(Path_File, num2str(pack_num), suffixChar, '.bmp'));
 
 %% Mr.Geng's code
 %% Modified by Mindan
